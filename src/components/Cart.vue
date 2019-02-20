@@ -140,10 +140,14 @@ export default {
       this.$emit('removeFromCart', productId);
     }
    },
-   created() {
+   beforeCreate() {
+     console.log("i am now listening");
       eventBus.$on('addToCart', (data) => {
-          this.itemsInCart.unshift();
+        console.log("adding product");
+        console.log(data);
+          return this.itemsInCart.unshift(data);
       });
+      // this.itemsInCart = window.localStorage.getItem('my-product');
    }
   }
 
