@@ -12,7 +12,10 @@ Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 
 /* eslint-disable no-new */
+export const eventBus = new Vue();
+
 new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
+

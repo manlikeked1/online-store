@@ -1,4 +1,5 @@
 <template lang="html">
+import { eventBus } from '../main';
   <div class="container">
     <div class="row">
       <div class="col-md-4" v-for="product in products" :key="product.id">
@@ -27,6 +28,7 @@
 </template>
 
 <script>
+import { eventBus } from './../main.js';
 export default {
   data() {
         return {
@@ -134,12 +136,14 @@ export default {
     methods:{
     addToCart(productId) {
       var id = productId;
-
-      var product = this.products.find(product => {
-        product.id == id;
+      
+      var product = this.products.filter(product => {
+        return product.id == id;
       })
 
-      return this.$emit('addToCart', product);
+      // console.log(product);
+
+      eventBus.$emit('addToCart', product);
     }
     }
 }

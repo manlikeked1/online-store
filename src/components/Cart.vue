@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="container">
   <h1>Your Cart</h1>
-   <div class="center" v-for="product in products" :key="product.id">
+   <div class="center" v-for="product in itemsInCart" :key="product.id">
     <div class="col-md-8 cart-item">
       <div class="row">
         <div class="item-img pull-left">
@@ -15,31 +15,17 @@
       </div>
     </div>
   </div>
-  <div class="total">
-    <h3> Total : &euro;{{total}} </h3>
+  <div class="total" v-if="totalAmount">
+    <h3> Total : &euro;{{totalAmount}} </h3>
   </div>
  </div>
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-3"  v-for="product in products" :key="product.id">
-        <img :src="product.image" class="card-img-top" alt="...">
-      </div>
-      <div class="col-3">
-        <h5 class="card-title">{{product.name}}</h5>
-
-
-      </div>
-
-    </div>
-
-  </div> -->
-
 </template>
 
 <script>
+import { eventBus } from './../main.js';
+
 export default {
    name: 'Cart',
-   // props: ['shoppingCart'],
    data() {
     return {
       products: [
@@ -139,19 +125,25 @@ export default {
               quantity: 'Quantity: 10',
               image: 'https://images.yaoota.com/WSFoC5I6dcPXLMDtBfw6lBdZteI=/trim/yaootaweb-production-ng/media/crawledproductimages/c47c5ac55cba90dd219ca9c90f1e46382b7602e2.jpg',
           },
-        ]
+        ],
+        itemsInCart: [],
      }
   },
   computed: {
-    total() {
+    totalAmount() {
       // return this.Cart.reduce((acc, item) => acc + product.price, 0);
-      return 10;
+      return 0;
     }
   },
   methods: {
     removeFromCart: function(productId) {
       this.$emit('removeFromCart', productId);
     }
+   },
+   created() {
+      eventBus.$on('addToCart', (data) => {
+          this.itemsInCart.unshift();
+      });
    }
   }
 
