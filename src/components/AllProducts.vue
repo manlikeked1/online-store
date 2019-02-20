@@ -161,7 +161,8 @@ button {
 }
 .card-img-top{
   /* margin-top: 200px; */
-  height: 300px;
+  height: 350px;
+
   /* background: grey; */
 
 }

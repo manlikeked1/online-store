@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="container">
   <h1>Your Cart</h1>
-   <div class="center" v-for="product in products" :key="product.id">
+   <div class="center" v-for="product in addedToCart" :key="product.id">
     <div class="col-md-8 cart-item">
       <div class="row">
         <div class="item-img pull-left">
@@ -139,10 +139,14 @@ export default {
               quantity: 'Quantity: 10',
               image: 'https://images.yaoota.com/WSFoC5I6dcPXLMDtBfw6lBdZteI=/trim/yaootaweb-production-ng/media/crawledproductimages/c47c5ac55cba90dd219ca9c90f1e46382b7602e2.jpg',
           },
-        ]
+        ],
+      cart: [],
      }
   },
   computed: {
+    addedToCart() {
+
+    },
     total() {
       // return this.Cart.reduce((acc, item) => acc + product.price, 0);
       return 10;
