@@ -1,11 +1,15 @@
 <template lang="html">
   <div class="container">
   <h1>Your Cart</h1>
+<<<<<<< HEAD
    <div class="center" v-for="product in addedToCart" :key="product.id">
+=======
+   <div class="center" v-for="product in myCart" :key="product.id">
+>>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
     <div class="col-md-8 cart-item">
       <div class="row">
         <div class="item-img pull-left">
-          <img class="card-img-top" v-bind:src="product.image">
+          <img style="width: 50px" class="card-img-top" v-bind:src="product.image">
         </div>
         <div class="item-info pull-right">
           <h5>{{product.name}}</h5>
@@ -37,11 +41,18 @@
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import { eventBus } from './../main.js';
+import Cart from "./../data/cart.js"
+
+>>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
 export default {
    name: 'Cart',
    // props: ['shoppingCart'],
    data() {
     return {
+      myCart: Cart,
       products: [
           {
               id: 1,
@@ -159,6 +170,7 @@ export default {
 <<<<<<< HEAD
 =======
    },
+<<<<<<< HEAD
    beforeCreate() {
      console.log("i am now listening");
       eventBus.$on('addToCart', (data) => {
@@ -169,6 +181,8 @@ export default {
       // this.itemsInCart = window.localStorage.getItem('my-product');
 >>>>>>> 680252342434583e174fee093b09bf34b6a03b1e
    }
+=======
+>>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
   }
 
 </script>
