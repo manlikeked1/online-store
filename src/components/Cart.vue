@@ -156,6 +156,18 @@ export default {
     removeFromCart: function(productId) {
       this.$emit('removeFromCart', productId);
     }
+<<<<<<< HEAD
+=======
+   },
+   beforeCreate() {
+     console.log("i am now listening");
+      eventBus.$on('addToCart', (data) => {
+        console.log("adding product");
+        console.log(data);
+          return this.itemsInCart.unshift(data);
+      });
+      // this.itemsInCart = window.localStorage.getItem('my-product');
+>>>>>>> 680252342434583e174fee093b09bf34b6a03b1e
    }
   }
 
