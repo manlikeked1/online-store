@@ -13,12 +13,23 @@
 
 <script>
 import Navbar from '@/components/Navbar';
+import {eventBus} from "./main.js";
 
+import Cart from '@/data/cart.js';
 
 export default {
   components: {
     Navbar
-  }
+  },
+  beforeCreate() {
+      eventBus.$on('addToCart', (data) => {
+        console.log("adding product");
+
+        Cart.unshift(data);
+
+        console.log(Cart);
+      });
+   }
 };
 </script>
 <style scoped>

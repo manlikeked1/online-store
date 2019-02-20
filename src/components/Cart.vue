@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="container">
   <h1>Your Cart</h1>
-   <div class="center" v-for="product in itemsInCart" :key="product.id">
+   <div class="center" v-for="product in myCart" :key="product.id">
     <div class="col-md-8 cart-item">
       <div class="row">
         <div class="item-img pull-left">
-          <img class="card-img-top" v-bind:src="product.image">
+          <img style="width: 50px" class="card-img-top" v-bind:src="product.image">
         </div>
         <div class="item-info pull-right">
           <h5>{{product.name}}</h5>
@@ -23,11 +23,13 @@
 
 <script>
 import { eventBus } from './../main.js';
+import Cart from "./../data/cart.js"
 
 export default {
    name: 'Cart',
    data() {
     return {
+      myCart: Cart,
       products: [
           {
               id: 1,
@@ -140,15 +142,6 @@ export default {
       this.$emit('removeFromCart', productId);
     }
    },
-   beforeCreate() {
-     console.log("i am now listening");
-      eventBus.$on('addToCart', (data) => {
-        console.log("adding product");
-        console.log(data);
-          return this.itemsInCart.unshift(data);
-      });
-      // this.itemsInCart = window.localStorage.getItem('my-product');
-   }
   }
 
 </script>

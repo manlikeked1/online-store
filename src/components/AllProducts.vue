@@ -16,7 +16,7 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                  <button class="btn btn-primary btn-block" @click="addToCart(product.id)">Add to cart <i class="mdi mdi-cart"></i></button>
+                  <button class="btn btn-primary btn-block" @click="addToCart(product)">Add to cart <i class="mdi mdi-cart"></i></button>
               </div>
             </div>
           </div>
@@ -133,20 +133,9 @@ export default {
         }
     },
     methods:{
-    addToCart(productId) {
-      var id = productId;
-      
-      var product = this.products.find(product => {
-        return product.id == id;
-      });
-
-      // product = product[0];
-
-      console.log("add to carat -- ");
-      console.log(product);
-      // window.localStorage.setItem('my-product', product);
-      eventBus.$emit('addToCart', product);
-    }
+      addToCart(product) {
+        eventBus.$emit('addToCart', product);
+      }
     }
 }
 </script>

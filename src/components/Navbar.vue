@@ -4,25 +4,38 @@
       <li><router-link to="/">AllProducts</router-link></li>
       <li><router-link to="/smartphones">Smartphones</router-link></li>
       <li><router-link to="/notebooks">Notebooks</router-link></li>
-      <li> <router-link class="btn btn-primary py-1 px-3 mr-5" :to="{name: 'cart'}">Cart
-                              <i class="mdi mdi-cart"></i>
-                            </router-link></li>
+      <li>
+        <router-link class="btn btn-primary py-1 px-3 mr-5" :to="{name: 'cart'}">
+          Cart ({{bigCart.length}})
+          <i class="mdi mdi-cart"></i>
+        </router-link>
+      </li>
 
     </ul>
 
   </nav>
-
-
-
-
-
-
-
-
 </template>
 <script>
+import Cart from "./../data/cart.js";
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data(){
+    return{
+      // noInCart: Cart.length,
+    }
+  },
+  computed: {
+    bigCart(){
+      return Cart
+    }
+  },
+  watch: {
+    bigCart(v){
+      console.log('updating');
+      console.log(v);
+    }
+  }
 };
 </script>
 <style scoped>
