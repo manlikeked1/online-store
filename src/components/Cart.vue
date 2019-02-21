@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="container">
   <h1>Your Cart</h1>
-<<<<<<< HEAD
+
    <div class="center" v-for="product in addedToCart" :key="product.id">
-=======
+
    <div class="center" v-for="product in myCart" :key="product.id">
->>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
+
     <div class="col-md-8 cart-item">
       <div class="row">
         <div class="item-img pull-left">
@@ -14,7 +14,7 @@
         <div class="item-info pull-right">
           <h5>{{product.name}}</h5>
           <h5>{{product.price}}</h5>
-          <button class="btn btn-danger" v-on:click="removeFromCart(item.id)">Remove From Cart</button>
+          <button class="btn btn-danger" v-on:click="removeFromCart(product)">Remove From Cart</button>
         </div>
       </div>
     </div>
@@ -23,30 +23,16 @@
     <h3> Total : &euro;{{total}} </h3>
   </div>
  </div>
-  <!-- <div class="container">
-    <div class="row">
-      <div class="col-3"  v-for="product in products" :key="product.id">
-        <img :src="product.image" class="card-img-top" alt="...">
-      </div>
-      <div class="col-3">
-        <h5 class="card-title">{{product.name}}</h5>
-
-
-      </div>
-
-    </div>
-
-  </div> -->
-
+</div>
 </template>
 
-<script>
-<<<<<<< HEAD
-=======
-import { eventBus } from './../main.js';
-import Cart from "./../data/cart.js"
 
->>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
+<script>
+
+import { eventBus } from './../main.js';
+import Cart from "./../data/cart.js";
+
+
 export default {
    name: 'Cart',
    // props: ['shoppingCart'],
@@ -164,28 +150,20 @@ export default {
     }
   },
   methods: {
-    removeFromCart: function(productId) {
-      this.$emit('removeFromCart', productId);
+    removeFromCart(product) {
+      this.$emit('removeFromCart', product);
     }
-<<<<<<< HEAD
-=======
-   },
-<<<<<<< HEAD
-   beforeCreate() {
-     console.log("i am now listening");
+  },
+    beforeCreate() {
+      console.log("i am now listening");
       eventBus.$on('addToCart', (data) => {
         console.log("adding product");
         console.log(data);
-          return this.itemsInCart.unshift(data);
-      });
-      // this.itemsInCart = window.localStorage.getItem('my-product');
->>>>>>> 680252342434583e174fee093b09bf34b6a03b1e
-   }
-=======
->>>>>>> 7c571ddc13fd725d94a03cc673193d5ed2a055ad
-  }
-
-</script>
+        this.itemsInCart.unshift(data);
+        })
+      }
+    }
+    </script>
 
 <style lang="css" scoped>
 </style>
