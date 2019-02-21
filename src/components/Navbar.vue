@@ -17,26 +17,19 @@
 </template>
 <script>
 import Cart from "./../data/cart.js";
+import { eventBus } from './../main.js';
 
 export default {
   name: 'Navbar',
   data(){
     return{
-      // noInCart: Cart.length,
+      bigCart: [],
     }
   },
-  computed: {
-    bigCart(){
-      return Cart
-    }
-  },
-  watch: {
-    bigCart(v){
-      console.log('updating');
-      console.log(v);
-    }
+  mounted() {
+    this.bigCart = Cart;
   }
-};
+}
 </script>
 <style scoped>
 ul{

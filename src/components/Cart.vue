@@ -29,9 +29,13 @@
 
 <script>
 
+<<<<<<< HEAD
 import { eventBus } from './../main.js';
 import Cart from "./../data/cart.js";
 
+=======
+import Cart from "./../data/cart.js"
+>>>>>>> afc0cdf2b026ea23455c9c233fe46d21268573e9
 
 export default {
    name: 'Cart',

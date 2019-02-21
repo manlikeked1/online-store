@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar />
+    <navbar :cartNo="numberInCart" />
     <div class="container">
       <div class="row">
         <div class="col">
@@ -21,6 +21,11 @@ export default {
   components: {
     Navbar
   },
+  computed: {
+    numberInCart() {
+      return Cart.length;
+    }
+  },
   beforeCreate() {
       eventBus.$on('addToCart', (data) => {
         console.log("adding product");
@@ -30,7 +35,7 @@ export default {
         console.log(Cart);
       });
    }
-};
+}
 </script>
 <style scoped>
   @import url("//cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css");
