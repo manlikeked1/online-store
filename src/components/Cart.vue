@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { eventBus } from './../main.js';
+
 import Cart from "./../data/cart.js"
 
 export default {
