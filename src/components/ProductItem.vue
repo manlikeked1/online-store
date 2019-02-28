@@ -2,7 +2,7 @@
   <div class="product-card p-2 rounded shadow-sm mb-4">
         <div class="row">
             <div class="col">
-                <div class="img m-2" :style="{backgroundImage: 'url('+productImg+')'}"></div>
+                <div class="img-m-2" :style="{backgroundImage: 'url('+productImg+')'}"></div>
             </div>
         </div>
         <div class="row">
@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-7">
                 <div class="product-price  pt-2 mx-3">
-                    RN {{ productPrice }}
+                    {{ productPrice }}
                 </div>
             </div>
             <div class="col-5">
@@ -45,7 +45,7 @@ export default {
 
 <style lang="css" scoped>
 .img{
-    min-height: 300px;
+    height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center, center;
@@ -73,4 +73,5 @@ export default {
     background-color: rgb(61, 204, 61);
     border-color: rgb(61, 204, 61);
 }
+
 </style>
