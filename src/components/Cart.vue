@@ -7,7 +7,7 @@
       </div>
     </div>
        <div class="row mt-2">
-           <div class="col-md-12" v-for="product in myCart" :key="product.id">
+           <div class="col-md-12" v-for="product in bigCart" :key="product.id">
              <div class="cartItem bg-white shadow-sm rounded p-2 mb-3">
                <div class="row align-items-center">
                  <div class="col-md-1">
@@ -40,22 +40,17 @@
 
 <script>
 
-import Cart from "./../data/cart.js"
-import allProducts from './../data/allProducts.js'
-
 export default {
    name: 'Cart',
    data() {
     return {
-      myCart: Cart,
-      products: allProducts,
      }
   },
   computed: {
     totalPrice() {
       let totalPrice = 0;
 
-      this.myCart.forEach( item => {
+      this.bigCart.forEach( item => {
         totalPrice +=item.price;
       })
 
@@ -68,7 +63,10 @@ export default {
       //   return this.myCart.indexOf(product)  == !position;
       // });
       return sortedCart;
-    }
+    },
+      bigCart (){
+        return this.$store.getters.getCart
+      }
   },
   methods: {
     removeFromCart(product) {
@@ -77,9 +75,7 @@ export default {
       cart.splice(positionOfProduct, 1);
     }
   },
-  mounted() {
 
-  }
 }
     </script>
 

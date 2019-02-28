@@ -11,7 +11,7 @@
             <i class="mdi mdi-cart"></i>
           </button>
           <div class="dropdown-menu" aria-labelledby="triggerId" >
-            <div class="col" v-for = "product in myCart" :key = "product.id">
+            <div class="col" v-for = "product in bigCart" :key = "product.id">
               <div class="cartItem bg-white shadow-sm ">
                 <div class="row align-items-justify mb-3">
                   <div class="col-2">
@@ -48,9 +48,6 @@
   </nav>
 </template>
 <script>
-import Cart from "./../data/cart.js";
-// import { eventBus } from './../main.js';
-// import allProducts from './../data/allProducts.js';
 import ProductCard from './ProductCard.vue';
 
 export default {
@@ -60,22 +57,21 @@ export default {
   },
   data(){
     return{
-      bigCart: [],
-      myCart:Cart,
-      
-
+    
       }
-    },
-    mounted() {
-      this.bigCart = Cart;
-
     },
     methods:{
     clearCart(product) {
       var cart = this.myCart;
      cart.splice(cart);
    },
+ },
+ computed: {
+   bigCart(){
+     return this.$store.getters.getCart
+   }
  }
+
 }
 </script>
 <style scoped>

@@ -138,11 +138,11 @@ export const store = new Vuex.Store({
     },
     mutations:{
         addToCart(state,payload){
-           var product = state.cart.find(item => {
+           var product = state.products.find(item => {
                return item == payload
            })
 
-           if (product.stock < 0){
+           if (product.stock <= 0){
                product.stock = 0;
                alert(product.name + 'Out of stock at')
                
@@ -151,6 +151,7 @@ export const store = new Vuex.Store({
            else{
             product.stock-- ;
             product.quantity++ ;
+            state.cart.push(product);
            }
            
         }
