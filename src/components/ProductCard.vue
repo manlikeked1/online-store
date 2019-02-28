@@ -13,7 +13,7 @@
           <div class="card-text"><strong>&#8358; {{productPrice}}</strong></div>
         </div>
         <div class="col-md-6">
-          <div class="text"> <strong>Quantity: {{productQuantity}}</strong></div>
+          <div class="text"> <strong>Quantity: {{productStock}}</strong></div>
         </div>
       </div>
       <div class="row">
@@ -36,39 +36,14 @@ export default {
     'productQuantity',
     'productImage',
     'wholeProduct',
+    'productStock',
 
   ],
-  // data:{
-  //   counter:10
-  // }
   methods:{
-    // addToCart(product) {
-    //   // eventBus.$emit('addToCart', product);
-    // },
     addToCart(product) {
+      this.$store.commit('addToCart',product)
 
-      this.productQuantity--;
-      eventBus.$emit('addToCart', product);
-      if(this.productQuantity < 0){
-        this.productQuantity = 0;
-        alert('Sorry product is finished!');
-      }
     },
-
-    // counter(quantity){
-      // eventBus.$emit('counter--',quantity);
-  //   },
-  //   handler : function(addToCart,counter){
-  //     this.addToCart(product);
-  //     this.counter(quantity);
-  //
-  // }
-  // handler:function(product,productQuantity){
-  //   this.addToCart(product);
-  //   this.counter(productQuantity)
-  //
-  // }
-
 },
 }
 </script>

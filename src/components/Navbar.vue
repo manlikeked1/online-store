@@ -49,8 +49,8 @@
 </template>
 <script>
 import Cart from "./../data/cart.js";
-import { eventBus } from './../main.js';
-import allProducts from './../data/allProducts.js';
+// import { eventBus } from './../main.js';
+// import allProducts from './../data/allProducts.js';
 import ProductCard from './ProductCard.vue';
 
 export default {
@@ -62,7 +62,7 @@ export default {
     return{
       bigCart: [],
       myCart:Cart,
-      products: allProducts,
+      
 
       }
     },
@@ -149,12 +149,14 @@ export default {
 
   .dropdown-menu{
       width:400px;
+      height: 400px;
+      overflow-y: scroll;
 
   }
   .clear{
     margin-left: 10rem;
   }
-
+  
 
 
 </style>

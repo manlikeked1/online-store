@@ -7,7 +7,8 @@
                         :productPrice="product.price"
                         :productQuantity="product.quantity"
                         :productImage="product.image"
-                        :wholeProduct="product"/>
+                        :wholeProduct="product"
+                        :productStock="product.stock"/>
       </div>
     </div>
   </div>
@@ -15,8 +16,6 @@
 
 <script>
 import ProductCard from './ProductCard.vue';
-import allProducts from './../data/allProducts.js';
-// import quantity from './../data/Quantity.js';
 
 export default {
   components:{
@@ -24,9 +23,14 @@ export default {
   },
   data() {
         return {
-            products: allProducts,
+            // products: allProducts,
         }
     },
+    computed:{
+      products (){
+        return this.$store.getters.getAllProducts
+      }
+    }
 
 }
 </script>

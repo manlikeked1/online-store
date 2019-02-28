@@ -38,6 +38,7 @@ export default {
         'productImg',
         'productPrice',
         'productQty',
+        // 'productStock',
       ],
 }
 
@@ -52,6 +53,8 @@ export default {
 }
 .product-card{
     background-color: white;
+    }
+
     .product-name{
         height: 50px;
         font-size: 0.95rem;
@@ -65,7 +68,6 @@ export default {
         font-size: 0.85rem;
         font-weight: bold;
     }
-}
 .btn{
     font-size: 0.9rem;
 }

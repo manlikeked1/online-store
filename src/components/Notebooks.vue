@@ -2,12 +2,13 @@
   <div class="container">
     <h2 class="header">Notebooks.</h2>
     <div class="row">
-      <div class="col-md-4" v-for="product in products" :key="product.id">
+      <div class="col-md-4" v-for="product in notebooks" :key="product.id">
           <product-card :productName="product.name"
                         :productPrice="product.price"
                         :productQuantity="product.quantity"
                         :productImage="product.image"
-                        :wholeProduct="product"/>
+                        :wholeProduct="product"
+                        :productStock="product.stock"/>
       </div>
     </div>
   </div>
@@ -15,7 +16,7 @@
 
 <script>
 import ProductCard from './ProductCard.vue';
-import notebooks from './../data/notebooks.js'
+// import notebooks from './../data/notebooks.js'
 
 export default {
   name: 'Notebooks',
@@ -24,8 +25,13 @@ export default {
   },
   data(){
     return {
-      products: notebooks,
+      // products: notebooks,
 
+    }
+  },
+  computed: {
+    notebooks(){
+      return this.$store.getters.getNotebooks
     }
   }
 };
