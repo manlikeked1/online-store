@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-7">
                 <div class="product-price  pt-2 mx-3">
-                    {{ productPrice }}
+                    N{{ productPrice }}
                 </div>
             </div>
             <div class="col-5">
