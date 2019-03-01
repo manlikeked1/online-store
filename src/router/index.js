@@ -5,6 +5,7 @@ import Smartphones from '@/components/Smartphones';
 import Notebooks from '@/components/Notebooks';
 import ProductItem from '@/components/ProductItem';
 import Cart from '@/components/Cart';
+import Welcome from '@/components/Welcome';
 
 Vue.use(Router);
 
@@ -12,7 +13,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path:'/',
+      name:'welcome',
+      component:Welcome
+    },
+    {
+      path: '/allproducts',
       name: 'allProducts',
       component: AllProducts
     },

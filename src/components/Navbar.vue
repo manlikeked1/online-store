@@ -2,7 +2,8 @@
 
   <nav class="sticky-top">
     <ul>
-      <li><router-link to="/" >AllProducts</router-link></li>
+      <!-- <li><router-link to="/">Welcome</router-link></li> -->
+      <li><router-link to="/allproducts">AllProducts</router-link></li>
       <li><router-link to="/smartphones">Smartphones</router-link></li>
       <li><router-link to="/notebooks">Notebooks</router-link></li>
       <li>
@@ -68,7 +69,7 @@ export default {
  },
  computed: {
    bigCart(){
-     return this.$store.getters.getCart
+     return this.$store.getters.getBigCart
    }
  }
 
@@ -104,7 +105,7 @@ export default {
     border-radius: 50%;
     position:absolute;
     top: 10px;
-    left: 56rem;
+    left: 59rem;
     font-weight:bold;
     background-color: #fff;
     color: #000;
@@ -112,24 +113,7 @@ export default {
     align-items: center;
     justify-content: center;
     margin:auto;
-    /* width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    position: absolute;
-    top: 1px;
-    margin-left: 42px; */
-    /* left: 3px; */
-    /* right: 1px; */
-    /* right: -5px; */
-    /* margin-left: -100px; */
-    /* background-color: #fff;
-    color: #000;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center; */
+    
   }
 
   .router-link-active{

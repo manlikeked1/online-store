@@ -115,7 +115,7 @@ export const store = new Vuex.Store({
                 image: 'https://images.yaoota.com/WSFoC5I6dcPXLMDtBfw6lBdZteI=/trim/yaootaweb-production-ng/media/crawledproductimages/c47c5ac55cba90dd219ca9c90f1e46382b7602e2.jpg',
             },
         ],
-        cart: []
+        bigCart: []
     },
     getters:{
         getAllProducts(state){
@@ -132,29 +132,67 @@ export const store = new Vuex.Store({
                 return product.category == 'notebook'
             })
         },
-        getCart (state){
-            return state.cart
+        getBigCart (state){
+            return state.bigCart;
+        },
+        getDistinctCart: (state) => {
+            var ked = [...new Set(state.bigCart)]
+            return ked;
         }
+        
     },
     mutations:{
-        addToCart(state,payload){
-           var product = state.products.find(item => {
-               return item == payload
+        addToCart: (state,payload) => {
+           var product = state.products.find(product=> {
+               return product == payload
            })
 
            if (product.stock <= 0){
+               product.quantity =10;
                product.stock = 0;
-               alert(product.name + 'Out of stock at')
+               alert(product.name + 'Out of stock at');
                
                return ;
            }
            else{
             product.stock-- ;
             product.quantity++ ;
-            state.cart.push(product);
+            state.bigCart.splice(state.bigCart.indexOf(product), 0 , product);
            }
            
+           
+        },
+        removeFromCart: (state,payload) => {
+            var product = state.products.find(product =>
+            {
+                return product == payload;
+            }
+            )  
+            if (product.quantity >= 0){
+                product.quantity--
+                product.stock++
+                state.bigCart.splice(state.bigCart.indexOf(product), 1);
+            } 
+            else{
+                
+                alert('removed product');
+                // product.quantity--;
+                // product.stock++;
+            }
+            
+
+        },
+        removeProduct: (state, payload) => {
+            return cartItem = state.bigCart.find(product => {
+                if(product == payload){
+                    state.bigCart.splice(state.bigCart.indexOf(product), product.quantity)
+                    product.quantity=0;
+                    product.stock=10;
+                }
+            })
         }
     }
+
+    
 });
 

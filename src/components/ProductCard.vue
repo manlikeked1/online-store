@@ -9,10 +9,10 @@
     <div class="card-body">
     <h5 class="card-title">{{productName}}</h5>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="card-text"><strong>&#8358; {{productPrice}}</strong></div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="text"> <strong>Quantity: {{productStock}}</strong></div>
         </div>
       </div>
